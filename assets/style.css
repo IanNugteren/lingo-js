@@ -1,0 +1,13 @@
+input {  
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 5px;
+    border: solid black 1px;;
+    background-color: blue;
+    color: white;
+    text-shadow: black 1px 1px;
+}
+
+
