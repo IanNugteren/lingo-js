@@ -1,7 +1,21 @@
-var random  = words[Math.floor(   Math.random()   * words.length)];
-var wordArray = random.split('');
-console.log(wordArray);
+var random = Math.floor(Math.random() * 479);
+var answer = words[random];
+var answerArray = answer.split('');
+console.log(answerArray);
 
-document.getElementById("input_0").value = wordArray[0];
+var checkButton = document.getElementById('check');
+
+checkButton.setAttribute ("onclick", "check()");
+
+function check(){
+    for(var i = 0 ; i < 5; i++){
+        var input = document.getElementById('letter_' + i);
+        console.log(input.value);
+
+        if(input.value == answerArray[i]){
+            input.style.backgroundColor = 'red';    
+        }
+    }
+}
 
 
