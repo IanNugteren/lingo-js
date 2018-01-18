@@ -6,7 +6,6 @@ var newButton = document.getElementById('new');
 var correct = true;
 var currentRow = 1;
 
-
 console.log(answerArray);
 
 function start() {
@@ -17,13 +16,39 @@ function start() {
 }
 
 checkButton.setAttribute ("onclick", "check()");
-newButton.setAttribute ('onclick', 'nieuwWoord()');
+newButton.setAttribute ('onclick', 'refreshPage()');
+
+window.onkeyup = function() {
+    for (var i = 0 ; i < 5; i++){
+        var input = document.getElementById('letter' + currentRow + '_'  + i);
+        input.value = input.value.toLowerCase();
+    }
+
+}
 
 function check(){
     for (var i = 0 ; i < 5; i++){
         var input = document.getElementById('letter' + currentRow + '_'  + i);
 
-        if (answerArray.includes(input.value)) {
+        if (answerArray[1].includes(input.value)) {
+            // Als het antwoord (in array) de letter bevat.
+            input.style.backgroundColor = 'yellow';
+            document.getElementById('letter' + currentRow  + '_' + i).readOnly = true;
+        }
+
+        if (answerArray[2].includes(input.value)) {
+            // Als het antwoord (in array) de letter bevat.
+            input.style.backgroundColor = 'yellow';
+            document.getElementById('letter' + currentRow  + '_' + i).readOnly = true;
+        }
+
+        if (answerArray[3].includes(input.value)) {
+            // Als het antwoord (in array) de letter bevat.
+            input.style.backgroundColor = 'yellow';
+            document.getElementById('letter' + currentRow  + '_' + i).readOnly = true;
+        }
+
+        if (answerArray[4].includes(input.value)) {
             // Als het antwoord (in array) de letter bevat.
             input.style.backgroundColor = 'yellow';
             document.getElementById('letter' + currentRow  + '_' + i).readOnly = true;
@@ -35,7 +60,8 @@ function check(){
             document.getElementById('letter' + currentRow  + '_' + i).readOnly = true;
         }
     }
-    correct = true;
+        correct = true;
+
     for(var i = 0; i < 5; i++){
         var input = document.getElementById('letter' + currentRow  + '_' + i);
         if(input.value != answerArray[i]) {
@@ -55,7 +81,7 @@ function check(){
 
 }
 
-function nieuwWoord() {
+function refreshPage () {
     window.location.href = 'index.html';
 }
 
